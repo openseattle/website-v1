@@ -13,9 +13,9 @@ export default function Home() {
         <link rel='stylesheet' href='https://rsms.me/inter/inter.css' />
       </Head>
 
-      <main className='flex flex-1 flex-col items-center py-4 px-4'>
-        <div className='py-20 text-center'>
-          <h1 className='text-6xl font-bold leading-snug text-sky-300'>
+      <main className='flex max-w-7xl flex-1 flex-col items-center py-4 px-4'>
+        <div className='py-10 pt-60 text-center'>
+          <h1 className='text-6xl font-bold leading-snug text-sky-600 dark:text-sky-300'>
             Open Seattle
           </h1>
           <h2 className='text-lg'>Technical folks using our powers for good</h2>
@@ -61,7 +61,7 @@ export default function Home() {
           </Card>
         </div>
         <div className='py-10 text-center'>
-          <h1 className='text-5xl font-bold leading-snug text-sky-300'>
+          <h1 className='text-5xl font-bold leading-snug text-sky-600 dark:text-sky-300'>
             Open Source
           </h1>
           <p className='max-w-prose text-lg'>
@@ -71,13 +71,13 @@ export default function Home() {
         </div>
         {/* <div className='flex w-full flex-col items-center justify-between'> */}
         <ul className='flex flex-col gap-4 text-center'>
-          <li className='whitespace-nowrap rounded-md bg-white bg-opacity-10 px-8 py-2 text-2xl'>
+          <li className='whitespace-nowrap rounded-md bg-slate-300 px-8 py-2 text-2xl dark:bg-white dark:bg-opacity-10'>
             Built for communities
           </li>
-          <li className='whitespace-nowrap rounded-md bg-white bg-opacity-10 px-4 py-2 text-2xl'>
+          <li className='whitespace-nowrap rounded-md bg-slate-300 px-4 py-2 text-2xl dark:bg-white dark:bg-opacity-10'>
             Free for all to use
           </li>
-          <li className='whitespace-nowrap rounded-md bg-white bg-opacity-10 px-4 py-2 text-2xl'>
+          <li className='whitespace-nowrap rounded-md bg-slate-300 px-4 py-2 text-2xl dark:bg-white dark:bg-opacity-10'>
             Free to modify
           </li>
         </ul>
