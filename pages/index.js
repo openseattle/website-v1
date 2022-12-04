@@ -30,7 +30,7 @@ export default function Home() {
             <h2 className='text-2xl'>Volunteer</h2>
             <p>
               The problems facing Washington may seem daunting, but luckily
-              there's no shortage of generous, talented Seattlites!
+              there&apos;s no shortage of generous, talented Seattlites!
             </p>
             <p className='text-sm italic'>
               Willing to be a regular contributor to a project helping your
