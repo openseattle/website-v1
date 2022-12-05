@@ -14,20 +14,20 @@ export default function Home() {
       </Head>
 
       <main className='flex max-w-7xl flex-1 flex-col items-center py-4 px-4'>
-        <div className='py-10 pt-60 text-center'>
+        <div className='py-10 text-center lg:pt-40'>
           <h1 className='text-6xl font-bold leading-snug text-sky-600 dark:text-sky-300'>
             Open Seattle
           </h1>
           <h2 className='text-lg'>Technical folks using our powers for good</h2>
         </div>
-        <div className='grid gap-4 md:grid-cols-3'>
+        <div className='grid gap-4 lg:grid-cols-3'>
           <Card>
-            <h2 className='text-2xl'>Volunteer</h2>
+            <h2 className='max-w-prose text-2xl'>Volunteer</h2>
             <p>
               The problems facing Washington may seem daunting, but luckily
               there&apos;s no shortage of generous, talented Seattlites!
             </p>
-            <p className='text-sm italic'>
+            <p className='max-w-prose text-sm italic'>
               Willing to be a regular contributor to a project helping your
               community? Apply to become an Open Seattle Volunteer.
             </p>
@@ -37,13 +37,13 @@ export default function Home() {
           </Card>
 
           <Card>
-            <h2 className='text-2xl'>Partner</h2>
+            <h2 className='max-w-prose text-2xl'>Partner</h2>
             <p>
               Communities and local governments know which initiatives would
               have the biggest impact, but frequently lack the people and the
               budget to execute.
             </p>
-            <p className='text-sm italic'>
+            <p className='max-w-prose text-sm italic'>
               Have a vision for the community you serve but need some help in
               execution? Apply to become an Open Seattle Partner.
             </p>
@@ -53,7 +53,7 @@ export default function Home() {
           </Card>
 
           <Card>
-            <h2 className='text-2xl'>Press Inquiries</h2>
+            <h2 className='max-w-prose text-2xl'>Press Inquiries</h2>
             <p>Have a question about Open Seattle?</p>
             <CardActions>
               <ButtonLink href='https://google.com'>Contact us</ButtonLink>
