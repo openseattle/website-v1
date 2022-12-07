@@ -14,12 +14,6 @@ export default function Home() {
       </Head>
 
       <main className='flex max-w-7xl flex-1 flex-col items-center py-4 px-4'>
-        <div className='py-10 text-center lg:pt-40'>
-          <h1 className='text-6xl font-bold leading-snug text-sky-600 dark:text-sky-300'>
-            Open Seattle
-          </h1>
-          <h2 className='text-lg'>Technical folks using our powers for good</h2>
-        </div>
         <div className='grid gap-4 lg:grid-cols-3'>
           <Card>
             <h2 className='max-w-prose text-2xl'>Volunteer</h2>
