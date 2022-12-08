@@ -1,6 +1,6 @@
-# Open Seattle - Demo
+# Open Seattle
 
-This repository holds code for a presentational demo of the new [Open Seattle](https://github.com/openseattle) site, built using NextJS and Tailwind.
+This repository holds code the new [Open Seattle](https://github.com/openseattle) website, built using NextJS and Tailwind.
 
 ## Getting Started
 
