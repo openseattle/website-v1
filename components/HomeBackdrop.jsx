@@ -12,6 +12,7 @@ export default function HomeBackdrop() {
         }}
       >
         <Image
+          priority='true'
           src='/seattle-backdrop.jpg'
           alt=''
           fill
