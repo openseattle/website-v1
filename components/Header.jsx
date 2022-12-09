@@ -20,7 +20,7 @@ function HideOnScroll({ children }) {
   );
 }
 
-export default React.forwardRef((props, ref) => {
+export default React.forwardRef(function Header(props, ref) {
   return (
     <>
       <HideOnScroll {...props}>
