@@ -3,9 +3,7 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 
 import createEmotionCache from '../utils/createEmotionCache';
 import lightTheme from '../styles/themes/light-theme';
-import '../styles/globals.css';
 
-import Header from '../components/Header';
 import Head from 'next/head';
 
 const clientSideEmotionCache = createEmotionCache();
@@ -23,7 +21,6 @@ function MyApp({
         </Head>
         <ThemeProvider theme={lightTheme}>
           <CssBaseline />
-          {/* <Header /> */}
           <Component {...pageProps} />
         </ThemeProvider>
       </CacheProvider>

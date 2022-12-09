@@ -1,19 +1,16 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 
 import Head from 'next/head';
-import Image from 'next/image';
 
 import {
   Box,
   Card,
-  CardHeader,
   CardContent,
   CardActions,
   Button,
   Typography,
   Container,
   Grid,
-  Divider,
   Paper,
   Stack,
 } from '@mui/material';
@@ -47,6 +44,7 @@ export default function Home() {
   useLayoutEffect(() => {
     setToolbarHeight(ref.current.clientHeight);
   }, [windowSize]);
+
   return (
     <>
       <Head>
