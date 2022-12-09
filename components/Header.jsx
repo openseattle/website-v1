@@ -1,20 +1,50 @@
-import Image from 'next/image';
+import {
+  Box,
+  AppBar,
+  Toolbar,
+  Typography,
+  Slide,
+  useScrollTrigger,
+} from '@mui/material';
+import React from 'react';
 
-export default function Header() {
+function HideOnScroll({ children }) {
+  const trigger = useScrollTrigger({
+    threshold: 0,
+    disableHysteresis: true,
+  });
   return (
-    <header className='grid w-full grid-cols-3 items-center py-8 px-8'>
-      <Image
-        src='/openseattle-500x392.png'
-        alt='Open Seattle Logo'
-        width={80}
-        height={80}
-      />
-      <div className='hidden justify-self-center text-center md:block'>
-        <h1 className='whitespace-nowrap text-6xl font-bold leading-snug text-orange-600 dark:text-orange-400'>
-          Open Seattle
-        </h1>
-        <h2 className='text-lg'>Technical folks using our powers for good</h2>
-      </div>
-    </header>
+    <Slide appear={false} direction='down' in={!trigger}>
+      {children}
+    </Slide>
   );
 }
+
+export default React.forwardRef((props, ref) => {
+  return (
+    <>
+      <HideOnScroll {...props}>
+        <AppBar position='sticky' color='transparent' elevation={1} ref={ref}>
+          <Toolbar sx={{ justifyContent: 'center' }}>
+            <Box textAlign='center'>
+              <Typography
+                variant='h1'
+                sx={{ fontSize: 48, fontWeight: 500 }}
+                noWrap
+              >
+                Open Seattle
+              </Typography>
+              <Typography
+                variant='h2'
+                sx={{ fontSize: 24, display: { xs: 'none', sm: 'block' } }}
+                noWrap
+              >
+                Technical folks using our powers for good
+              </Typography>
+            </Box>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
+    </>
+  );
+});

@@ -1,23 +1,32 @@
-import Navbar from '../components/Navbar';
-import '../styles/globals.css';
-import Image from 'next/image';
-import Header from '../components/Header';
+import { CacheProvider } from '@emotion/react';
+import { ThemeProvider, CssBaseline } from '@mui/material';
 
-function MyApp({ Component, pageProps }) {
+import createEmotionCache from '../utils/createEmotionCache';
+import lightTheme from '../styles/themes/light-theme';
+import '../styles/globals.css';
+
+import Header from '../components/Header';
+import Head from 'next/head';
+
+const clientSideEmotionCache = createEmotionCache();
+
+function MyApp({
+  Component,
+  pageProps,
+  emotionCache = clientSideEmotionCache,
+}) {
   return (
     <>
-      <div className='flex min-h-screen flex-col items-center'>
-        <Header />
-        <Component {...pageProps} />
-        <footer className='flex w-full flex-col items-center border-t border-solid border-t-slate-600 py-2'>
-          <Image
-            src='/openseattle-500x392.png'
-            alt='Open Seattle Logo'
-            width={80}
-            height={80}
-          />
-        </footer>
-      </div>
+      <CacheProvider value={emotionCache}>
+        <Head>
+          <meta name='viewport' content='initial-scale=1, width=device-width' />
+        </Head>
+        <ThemeProvider theme={lightTheme}>
+          <CssBaseline />
+          {/* <Header /> */}
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </CacheProvider>
     </>
   );
 }
