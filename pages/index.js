@@ -126,7 +126,7 @@ export default function Home() {
                   rel='noreferrer noopener'
                   endIcon={<OpenInNewIcon />}
                 >
-                  Contact us
+                  Press inquiries
                 </Button>
               </CardActions>
             </Card>
