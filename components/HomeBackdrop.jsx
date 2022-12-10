@@ -9,16 +9,12 @@ export default function HomeBackdrop() {
           width: '100%',
           position: 'absolute',
           zIndex: '-2',
+          backgroundImage: `url(/seattle-backdrop-blur3.webp)`,
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
         }}
-      >
-        <Image
-          priority='true'
-          src='/seattle-backdrop.jpg'
-          alt=''
-          fill
-          style={{ objectFit: 'cover', backdropFilter: 'blur(10px)' }}
-        />
-      </Box>
+      />
       <Box
         sx={{
           height: '100vh',
@@ -27,7 +23,8 @@ export default function HomeBackdrop() {
           zIndex: '-1',
           background:
             'radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(255,255,255,.4) 50%, rgba(255,255,255,.4) 100%)',
-          backdropFilter: 'blur(6px)',
+          backgroundRepeat: 'no-repeat',
+          // backdropFilter: 'blur(6px)',
         }}
       />
     </>
