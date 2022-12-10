@@ -6,7 +6,11 @@ import theme, { roboto } from '../styles/themes/light-theme';
 export default class CustomDocument extends Document {
   render() {
     return (
-      <Html lang='en-US' className={roboto.className}>
+      <Html
+        lang='en-US'
+        className={roboto.className}
+        style={{ scrollBehavior: 'smooth' }}
+      >
         <Head>
           <link
             rel='stylesheet'

@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useEffect, useRef, useState } from 'react';
 
 import Head from 'next/head';
 
@@ -41,7 +41,7 @@ export default function Home() {
 
   const [toolbarHeight, setToolbarHeight] = useState(0);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setToolbarHeight(ref.current.clientHeight);
   }, [windowSize]);
 
@@ -126,7 +126,7 @@ export default function Home() {
                   rel='noreferrer noopener'
                   endIcon={<OpenInNewIcon />}
                 >
-                  Contact us
+                  Press inquiries
                 </Button>
               </CardActions>
             </Card>
