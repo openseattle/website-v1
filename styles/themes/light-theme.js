@@ -1,27 +1,44 @@
-import { Roboto } from '@next/font/google';
-import { createTheme } from '@mui/material/styles';
+import { Roboto, Open_Sans, Oswald } from '@next/font/google';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
-export const roboto = Roboto({
-  weight: ['300', '400', '500', '700'],
+export const open_sans = Open_Sans({
   subsets: ['latin'],
   display: 'swap',
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
 });
 
-const lightTheme = createTheme({
+export const oswald = Oswald({
+  subsets: ['latin'],
+  display: 'swap',
+  fallback: ['Helvetica', 'Arial', 'sans-serif'],
+});
+
+let theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#74B861',
+      main: '#80B0DB',
     },
     secondary: {
-      main: '#F09233',
+      main: '#E3655B',
     },
     contrastThreshold: 7,
   },
   typography: {
-    fontFamily: roboto.style.fontFamily,
+    fontFamily: open_sans.style.fontFamily,
+    h1: {
+      fontFamily: oswald.style.fontFamily,
+    },
+    h2: {
+      fontFamily: oswald.style.fontFamily,
+      fontWeight: '500',
+    },
+    h3: {
+      fontFamily: oswald.style.fontFamily,
+    },
   },
 });
 
-export default lightTheme;
+theme = responsiveFontSizes(theme);
+
+export default theme;
