@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Box } from '@mui/material';
-export default function HomeBackdrop() {
+export default function HomeBackdrop({ children }) {
   return (
     <>
       <Box
@@ -11,13 +11,14 @@ export default function HomeBackdrop() {
           zIndex: '-2',
         }}
       >
-        <Image
+        {children}
+        {/* <Image
           priority='true'
           src='/seattle-backdrop.jpg'
           alt=''
           fill
           style={{ objectFit: 'cover', backdropFilter: 'blur(10px)' }}
-        />
+        /> */}
       </Box>
       <Box
         sx={{

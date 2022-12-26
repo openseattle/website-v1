@@ -8,23 +8,23 @@ import {
 } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
-export default function TranslucentCTACard({ header, body, link }) {
+export default function TranslucentCTACard({ heading, excerpt, callToAction }) {
   return (
     <Card sx={{ backgroundColor: '#ffffffcc' }}>
-      <CardHeader title={header} sx={{ pb: 1 }} />
+      <CardHeader title={heading} sx={{ pb: 1 }} />
       <CardContent sx={{ pt: 1 }}>
-        <Typography maxWidth='60ch'>{body}</Typography>
+        <Typography maxWidth='60ch'>{excerpt}</Typography>
       </CardContent>
       <CardActions>
         <Button
           variant='contained'
           color='primary'
-          href={link}
+          href={callToAction.url}
           target='_blank'
           rel='noreferrer noopener'
           endIcon={<OpenInNewIcon />}
         >
-          Apply now
+          {callToAction.linkText}
         </Button>
       </CardActions>
     </Card>

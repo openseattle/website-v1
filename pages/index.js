@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, useState } from 'react';
-
+import { createClient } from 'next-sanity';
 import Head from 'next/head';
 
 import {
@@ -22,25 +22,16 @@ import useWindowSize from '../utils/hooks/useWindowSize';
 import Header from '../components/Header';
 import TranslucentCTACard from '../components/TranslucentCTACard';
 import HomeBackdrop from '../components/HomeBackdrop';
+import Image from 'next/image';
+import { useNextSanityImage } from 'next-sanity-image';
 
-const volunteerCard = {
-  header: 'Volunteer',
-  body: 'Willing to be a regular contributor to a project helping your community? Apply to become an Open Seattle Volunteer.',
-  link: 'https://airtable.com/shrU3QaEEyYH427HP',
-};
-
-const partnerCard = {
-  header: 'Partner',
-  body: 'Have a vision for the community you serve but need some help in execution? Apply to become an Open Seattle Partner.',
-  link: 'https://airtable.com/shrHFwLdWCuIErqT5',
-};
-
-export default function Home() {
+export default function Home({ content }) {
   const windowSize = useWindowSize();
   const ref = useRef(null);
 
   const [toolbarHeight, setToolbarHeight] = useState(0);
 
+  const imageProps = useNextSanityImage(client, content[0].image);
   useLayoutEffect(() => {
     setToolbarHeight(ref.current.clientHeight);
   }, [windowSize]);
@@ -49,13 +40,18 @@ export default function Home() {
     <>
       <Head>
         <title>Open Seattle</title>
-        <meta
-          name='description'
-          content='Technical folks using our powers for good.'
-        />
+        <meta name='description' content={content[0].tagline} />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <HomeBackdrop />
+      <HomeBackdrop>
+        <Image
+          src={imageProps.src}
+          loader={imageProps.loader}
+          alt={imageProps.alt}
+          objectFit='cover'
+          fill
+        />
+      </HomeBackdrop>
       <Header ref={ref} />
       <main>
         <Container sx={{ height: `calc(100vh - ${toolbarHeight}px)`, p: 4 }}>
@@ -68,10 +64,10 @@ export default function Home() {
           </Typography>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
-              <TranslucentCTACard {...volunteerCard} />
+              <TranslucentCTACard {...content[3]} />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TranslucentCTACard {...partnerCard} />
+              <TranslucentCTACard {...content[4]} />
             </Grid>
           </Grid>
         </Container>
@@ -89,7 +85,14 @@ export default function Home() {
             Open Seattle makes it easier for partners, volunteers, and local
             governments to collaborate on open source technology.
           </Typography>
-          <Box sx={{ display: 'flex', gap: 4, p: 4 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: { xs: 'column', md: 'row' },
+              gap: 4,
+              p: 4,
+            }}
+          >
             <Stack gap={1}>
               <Paper
                 elevation={1}
@@ -115,24 +118,42 @@ export default function Home() {
             </Stack>
             <Card elevation={0}>
               <CardContent>
-                <Typography>Questions about Open Seattle?</Typography>
+                <Typography>{content[5].tagline}</Typography>
               </CardContent>
-              <CardActions>
+              <CardActions sx={{ justifyContent: 'center' }}>
                 <Button
                   variant='outlined'
                   color='info'
-                  href='https://airtable.com/shrji3lVSeBIFurC1'
+                  href={content[5].callToAction.url}
                   target='_blank'
                   rel='noreferrer noopener'
                   endIcon={<OpenInNewIcon />}
                 >
-                  Contact us
+                  {content[5].callToAction.linkText}
                 </Button>
               </CardActions>
             </Card>
           </Box>
         </Container>
+        {/* <pre>{JSON.stringify(content, null, 2)}</pre> */}
       </main>
     </>
   );
+}
+
+const client = createClient({
+  projectId: 'c0yyoz8w',
+  dataset: 'production',
+  apiVersion: '2022-12-22',
+  useCdn: false,
+});
+
+export async function getStaticProps() {
+  const landingPage = await client.fetch('*[_type == "landing-page"]');
+  const content = landingPage[0].pageBuilder;
+  return {
+    props: {
+      content,
+    },
+  };
 }
