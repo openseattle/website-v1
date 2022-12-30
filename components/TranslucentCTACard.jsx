@@ -7,6 +7,7 @@ import {
   Typography,
 } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import Link from 'next/link';
 
 export default function TranslucentCTACard({ heading, excerpt, callToAction }) {
   return (
@@ -17,11 +18,10 @@ export default function TranslucentCTACard({ heading, excerpt, callToAction }) {
       </CardContent>
       <CardActions>
         <Button
+          component={Link}
           variant='contained'
           color='primary'
           href={callToAction.url}
-          target='_blank'
-          rel='noreferrer noopener'
           endIcon={<OpenInNewIcon />}
         >
           {callToAction.linkText}

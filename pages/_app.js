@@ -5,6 +5,7 @@ import createEmotionCache from '../utils/createEmotionCache';
 import lightTheme from '../styles/themes/light-theme';
 
 import Head from 'next/head';
+import Header from '../components/Headerv2';
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -21,6 +22,7 @@ function MyApp({
         </Head>
         <ThemeProvider theme={lightTheme}>
           <CssBaseline />
+          <Header />
           <Component {...pageProps} />
         </ThemeProvider>
       </CacheProvider>

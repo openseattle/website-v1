@@ -23,7 +23,7 @@ export default function Projects() {
   const { reset } = formContext;
   return (
     <main>
-      <h1>Projects</h1>
+      <h1>Partner</h1>
       <Container>
         <FormContainer
           onSuccess={(data) => console.log(data)}

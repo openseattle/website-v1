@@ -4,9 +4,6 @@ import Head from 'next/head';
 
 import {
   Box,
-  Card,
-  CardContent,
-  CardActions,
   Button,
   Typography,
   Container,
@@ -18,24 +15,11 @@ import {
 import CheckIcon from '@mui/icons-material/Check';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
-import useWindowSize from '../utils/hooks/useWindowSize';
-import Header from '../components/Header';
+import Header from '../components/Headerv2';
 import TranslucentCTACard from '../components/TranslucentCTACard';
-import HomeBackdrop from '../components/HomeBackdrop';
-import Image from 'next/image';
 import { useNextSanityImage } from 'next-sanity-image';
 
 export default function Home({ content }) {
-  const windowSize = useWindowSize();
-  const ref = useRef(null);
-
-  const [toolbarHeight, setToolbarHeight] = useState(0);
-
-  const imageProps = useNextSanityImage(client, content[0].image);
-  useLayoutEffect(() => {
-    setToolbarHeight(ref.current.clientHeight);
-  }, [windowSize]);
-
   return (
     <>
       <Head>
@@ -43,84 +27,108 @@ export default function Home({ content }) {
         <meta name='description' content={content[0].tagline} />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <HomeBackdrop>
-        <Image
-          src={imageProps.src}
-          loader={imageProps.loader}
-          alt={imageProps.alt}
-          objectFit='cover'
-          fill
-        />
-      </HomeBackdrop>
-      <Header ref={ref} />
+
       <main>
-        <Container sx={{ height: `calc(100vh - ${toolbarHeight}px)`, p: 4 }}>
-          <Typography
-            variant='h3'
-            gutterBottom
-            textAlign={{ xs: 'center', sm: 'left' }}
-          >
-            Get Involved
-          </Typography>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TranslucentCTACard {...content[3]} />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TranslucentCTACard {...content[4]} />
-            </Grid>
-          </Grid>
-        </Container>
-        <Container
+        <Box
+          py={4}
           sx={{
+            height: 'min-content',
+            width: '100vw',
             display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            textAlign: 'center',
+            backgroundColor: 'primary.main',
           }}
         >
-          <Typography variant='h2'>About us</Typography>
-          <Typography variant='h4'>Open Source</Typography>
-          <Typography maxWidth='60ch'>
-            Open Seattle makes it easier for partners, volunteers, and local
-            governments to collaborate on open source technology.
-          </Typography>
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: { xs: 'column', md: 'row' },
-              gap: 4,
-              p: 4,
-            }}
-          >
-            <Stack gap={1}>
-              <Paper
-                elevation={1}
-                sx={{ display: 'flex', py: 2, px: 4, gap: 2 }}
+          <Container maxWidth='lg'>
+            <Box
+              sx={{
+                width: { xs: '100%', sm: '50%' },
+                overflow: 'hidden',
+              }}
+            >
+              <Typography variant='h2'>
+                Technical folks using our powers for good
+              </Typography>
+            </Box>
+          </Container>
+        </Box>
+        <Container maxWidth='lg'>
+          <Box py={4}>
+            <Typography
+              variant='h3'
+              gutterBottom
+              textAlign={{ xs: 'center', sm: 'left' }}
+            >
+              Get Involved
+            </Typography>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TranslucentCTACard {...content[3]} />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TranslucentCTACard
+                  {...content[4]}
+                  callToAction={{ linkText: 'Apply now', url: '/projects' }}
+                />
+              </Grid>
+            </Grid>
+          </Box>
+          <Box py={4}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <Typography
+                  variant='h3'
+                  gutterBottom
+                  textAlign={{ xs: 'center', sm: 'left' }}
+                >
+                  About us
+                </Typography>
+                <Typography
+                  maxWidth='60ch'
+                  gutterBottom
+                  textAlign={{ xs: 'center', sm: 'left' }}
+                >
+                  Open Seattle makes it easier for partners, volunteers, and
+                  local governments to collaborate on open source technology.
+                </Typography>
+
+                <Stack gap={1}>
+                  <Paper
+                    elevation={1}
+                    sx={{ display: 'flex', py: 2, px: 4, gap: 2 }}
+                  >
+                    <CheckIcon />
+                    <Typography>Built for communities</Typography>
+                  </Paper>
+                  <Paper
+                    elevation={1}
+                    sx={{ display: 'flex', py: 2, px: 4, gap: 2 }}
+                  >
+                    <CheckIcon />
+                    <Typography>Free for all to use</Typography>
+                  </Paper>
+                  <Paper
+                    elevation={1}
+                    sx={{ display: 'flex', py: 2, px: 4, gap: 2 }}
+                  >
+                    <CheckIcon />
+                    <Typography>Free to modify</Typography>
+                  </Paper>
+                </Stack>
+              </Grid>
+
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  flex: 1,
+                  gap: 1,
+                }}
               >
-                <CheckIcon />
-                <Typography>Built for communities</Typography>
-              </Paper>
-              <Paper
-                elevation={1}
-                sx={{ display: 'flex', py: 2, px: 4, gap: 2 }}
-              >
-                <CheckIcon />
-                <Typography>Free for all to use</Typography>
-              </Paper>
-              <Paper
-                elevation={1}
-                sx={{ display: 'flex', py: 2, px: 4, gap: 2 }}
-              >
-                <CheckIcon />
-                <Typography>Free to modify</Typography>
-              </Paper>
-            </Stack>
-            <Card elevation={0}>
-              <CardContent>
                 <Typography>{content[5].tagline}</Typography>
-              </CardContent>
-              <CardActions sx={{ justifyContent: 'center' }}>
                 <Button
                   variant='outlined'
                   color='info'
@@ -128,11 +136,12 @@ export default function Home({ content }) {
                   target='_blank'
                   rel='noreferrer noopener'
                   endIcon={<OpenInNewIcon />}
+                  sx={{ width: 'max-content' }}
                 >
                   {content[5].callToAction.linkText}
                 </Button>
-              </CardActions>
-            </Card>
+              </Grid>
+            </Grid>
           </Box>
         </Container>
         {/* <pre>{JSON.stringify(content, null, 2)}</pre> */}
