@@ -9,6 +9,7 @@ We use [MUI](https://mui.com/) as the primary component library.
 First, run the development server:
 
 ```bash
+npm install
 npm run dev
 # or
 yarn dev
