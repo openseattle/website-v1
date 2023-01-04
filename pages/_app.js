@@ -5,7 +5,7 @@ import createEmotionCache from '../utils/createEmotionCache';
 import lightTheme from '../styles/themes/light-theme';
 
 import Head from 'next/head';
-import Header from '../components/Headerv2';
+import Header from '../components/Header';
 
 const clientSideEmotionCache = createEmotionCache();
 
