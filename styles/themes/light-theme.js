@@ -17,12 +17,11 @@ let theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#80B0DB',
+      main: '#1D84D7',
     },
     secondary: {
       main: '#E3655B',
     },
-    contrastThreshold: 7,
   },
   typography: {
     fontFamily: open_sans.style.fontFamily,

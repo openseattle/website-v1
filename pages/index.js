@@ -27,51 +27,62 @@ export default function Home({ content }) {
         <Stack>
           {content.map((section, index) => {
             return (
-              <Container
+              <Box
                 key={section._key}
                 data-cy='home-section'
-                maxWidth='lg'
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: index % 2 === 0 ? 'flex-start' : 'flex-end',
-                  backgroundColor: index % 2 === 0 ? '#242424' : '#cccccc',
-                  color: index % 2 === 0 ? '#ffffff' : '#121212',
+                  backgroundColor: index % 2 === 0 ? '#dedede' : '#cecece',
+                  color: index % 2 === 0 ? '#121212' : '#121212',
                   height: { xs: '380px' },
+                  width: '100vw',
                 }}
               >
-                <Box sx={{ width: { xs: '100%', sm: '50%' } }}>
-                  <Typography variant='h2'>{section.heading}</Typography>
-                  {section.tagline && (
-                    <Typography
-                      maxWidth='60ch'
-                      variant='body1'
-                      fontSize='1.5rem'
-                      gutterBottom
-                    >
-                      {section.tagline}
-                    </Typography>
-                  )}
-                  {section.excerpt && (
-                    <Typography
-                      maxWidth='60ch'
-                      variant='body1'
-                      fontSize='1.5rem'
-                      gutterBottom
-                    >
-                      {section.excerpt}
-                    </Typography>
-                  )}
-                  {section.callToAction && (
-                    <ExternalButton
-                      variant='contained'
-                      color='secondary'
-                      href={section.callToAction.url}
-                      label={section.callToAction.linkText}
-                    />
-                  )}
-                </Box>
-              </Container>
+                <Container
+                  maxWidth='lg'
+                  sx={{
+                    display: 'flex',
+                    justifyContent: index % 2 === 0 ? 'flex-start' : 'flex-end',
+                  }}
+                >
+                  <Box
+                    sx={{
+                      width: { xs: '100%', sm: '50%' },
+                    }}
+                  >
+                    <Typography variant='h2'>{section.heading}</Typography>
+                    {section.tagline && (
+                      <Typography
+                        maxWidth='60ch'
+                        variant='body1'
+                        fontSize='1.5rem'
+                        gutterBottom
+                      >
+                        {section.tagline}
+                      </Typography>
+                    )}
+                    {section.excerpt && (
+                      <Typography
+                        maxWidth='60ch'
+                        variant='body1'
+                        fontSize='1.5rem'
+                        gutterBottom
+                      >
+                        {section.excerpt}
+                      </Typography>
+                    )}
+                    {section.callToAction && (
+                      <ExternalButton
+                        variant='contained'
+                        color='primary'
+                        href={section.callToAction.url}
+                        label={section.callToAction.linkText}
+                      />
+                    )}
+                  </Box>
+                </Container>
+              </Box>
             );
           })}
         </Stack>
