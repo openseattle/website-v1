@@ -34,10 +34,9 @@ export default function Header() {
                   fontSize={28}
                   fontWeight={400}
                   sx={{ lineHeight: 1 }}
+                  component='h1'
                 >
-                  Open
-                  <br />
-                  Seattle
+                  Open Seattle
                 </Typography>
               </Box>
             </ButtonBase>

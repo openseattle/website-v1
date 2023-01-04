@@ -29,6 +29,7 @@ export default function Home({ content }) {
             return (
               <Container
                 key={section._key}
+                data-cy='home-section'
                 maxWidth='lg'
                 sx={{
                   display: 'flex',
