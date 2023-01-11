@@ -13,6 +13,7 @@ import {
 
 import ExternalButton from '../components/ExternalButton';
 import { useNextSanityImage } from 'next-sanity-image';
+import Section from '../components/Section';
 
 export default function Home({ content }) {
   return (
@@ -26,64 +27,13 @@ export default function Home({ content }) {
       <main>
         <Stack>
           {content.map((section, index) => {
+            const imageProps = useNextSanityImage(client, section.image);
             return (
-              <Box
-                key={section._key}
-                data-cy='home-section'
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  backgroundColor: index % 2 === 0 ? '#fff' : '#dedede',
-                  color: index % 2 === 0 ? '#121212' : '#121212',
-                  height: { xs: '380px' },
-                  width: '100vw',
-                }}
-              >
-                <Container
-                  maxWidth='xl'
-                  sx={{
-                    display: 'flex',
-                    justifyContent: index % 2 === 0 ? 'flex-start' : 'flex-end',
-                  }}
-                >
-                  <Box
-                    sx={{
-                      width: { xs: '100%', sm: '50%' },
-                    }}
-                  >
-                    <Typography variant='h2'>{section.heading}</Typography>
-                    {section.tagline && (
-                      <Typography
-                        maxWidth='60ch'
-                        variant='body1'
-                        fontSize='1.5rem'
-                        gutterBottom
-                      >
-                        {section.tagline}
-                      </Typography>
-                    )}
-                    {section.excerpt && (
-                      <Typography
-                        maxWidth='60ch'
-                        variant='body1'
-                        fontSize='1.5rem'
-                        gutterBottom
-                      >
-                        {section.excerpt}
-                      </Typography>
-                    )}
-                    {section.callToAction && (
-                      <ExternalButton
-                        variant='contained'
-                        color='primary'
-                        size='large'
-                        href={section.callToAction.url}
-                        label={section.callToAction.linkText}
-                      />
-                    )}
-                  </Box>
-                </Container>
-              </Box>
+              <Section
+                section={section}
+                index={index}
+                imageProps={imageProps}
+              />
             );
           })}
         </Stack>
