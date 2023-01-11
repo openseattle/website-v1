@@ -34,11 +34,6 @@ export default function Header() {
                 fill
                 style={{ objectFit: 'contain' }}
               />
-              {/* <Typography sx={{ lineHeight: 1 }} component='h1' variant='h3'>
-                  Open
-                  <br />
-                  Seattle
-                </Typography> */}
             </ButtonBase>
           </Toolbar>
         </Container>

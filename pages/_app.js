@@ -1,5 +1,6 @@
 import { CacheProvider } from '@emotion/react';
 import { ThemeProvider, CssBaseline } from '@mui/material';
+import '../styles/global.css';
 
 import createEmotionCache from '../utils/createEmotionCache';
 import lightTheme from '../styles/themes/light-theme';
