@@ -33,14 +33,14 @@ export default function Home({ content }) {
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
-                  backgroundColor: index % 2 === 0 ? '#dedede' : '#cecece',
+                  backgroundColor: index % 2 === 0 ? '#fff' : '#dedede',
                   color: index % 2 === 0 ? '#121212' : '#121212',
                   height: { xs: '380px' },
                   width: '100vw',
                 }}
               >
                 <Container
-                  maxWidth='lg'
+                  maxWidth='xl'
                   sx={{
                     display: 'flex',
                     justifyContent: index % 2 === 0 ? 'flex-start' : 'flex-end',
@@ -76,6 +76,7 @@ export default function Home({ content }) {
                       <ExternalButton
                         variant='contained'
                         color='primary'
+                        size='large'
                         href={section.callToAction.url}
                         label={section.callToAction.linkText}
                       />

@@ -6,36 +6,39 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Header() {
   return (
     <header>
       <AppBar color='transparent' position='sticky'>
-        <Container maxWidth='lg'>
-          <Toolbar disableGutters>
+        <Container maxWidth='xl'>
+          <Toolbar disableGutters sx={{ height: 64 }}>
             <ButtonBase
               component={Link}
               href='/'
               sx={{
+                position: 'relative',
                 display: 'flex',
                 alignItems: 'center',
-                gap: 1,
-                py: 1,
                 borderRadius: 2,
+                width: 70,
+                height: 56,
+                p: 1,
               }}
             >
-              <Box>
-                <Typography
-                  fontFamily='oswald'
-                  fontSize={28}
-                  fontWeight={400}
-                  sx={{ lineHeight: 1 }}
-                  component='h1'
-                >
-                  Open Seattle
-                </Typography>
-              </Box>
+              <Image
+                src='/openseattle_logotype_-med.png'
+                alt=''
+                fill
+                style={{ objectFit: 'contain' }}
+              />
+              {/* <Typography sx={{ lineHeight: 1 }} component='h1' variant='h3'>
+                  Open
+                  <br />
+                  Seattle
+                </Typography> */}
             </ButtonBase>
           </Toolbar>
         </Container>

@@ -1,15 +1,25 @@
-import { Roboto, Open_Sans, Oswald } from '@next/font/google';
+import {
+  Roboto,
+  Open_Sans,
+  Oswald,
+  Lato,
+  League_Gothic,
+} from '@next/font/google';
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
-export const open_sans = Open_Sans({
+export const leagueGothic = League_Gothic({
   subsets: ['latin'],
   display: 'swap',
+  weight: '400',
+  style: 'normal',
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
 });
 
-export const oswald = Oswald({
+export const lato = Lato({
   subsets: ['latin'],
   display: 'swap',
+  weight: ['100', '300', '400', '700', '900'],
+  style: ['normal', 'italic'],
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
 });
 
@@ -17,23 +27,32 @@ let theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#1D84D7',
+      main: '#1F73B7',
     },
     secondary: {
       main: '#E3655B',
     },
   },
   typography: {
-    fontFamily: open_sans.style.fontFamily,
+    fontFamily: lato.style.fontFamily,
     h1: {
-      fontFamily: oswald.style.fontFamily,
+      fontFamily: leagueGothic.style.fontFamily,
     },
     h2: {
-      fontFamily: oswald.style.fontFamily,
+      fontFamily: leagueGothic.style.fontFamily,
       fontWeight: '500',
     },
     h3: {
-      fontFamily: oswald.style.fontFamily,
+      fontFamily: leagueGothic.style.fontFamily,
+    },
+    h4: {
+      fontFamily: leagueGothic.style.fontFamily,
+    },
+    h5: {
+      fontFamily: leagueGothic.style.fontFamily,
+    },
+    h6: {
+      fontFamily: leagueGothic.style.fontFamily,
     },
   },
 });
