@@ -1,20 +1,16 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 import createEmotionCache from '../utils/createEmotionCache';
-import theme, { roboto } from '../styles/themes/light-theme';
+import theme, { open_sans, oswald, roboto } from '../styles/themes/light-theme';
 
 export default class CustomDocument extends Document {
   render() {
     return (
-      <Html
-        lang='en-US'
-        className={roboto.className}
-        style={{ scrollBehavior: 'smooth' }}
-      >
+      <Html lang='en-US'>
         <Head>
           <link
+            href='https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=League+Gothic&display=swap'
             rel='stylesheet'
-            href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
           />
           <meta name='theme-color' content={theme.palette.primary.main} />
           <link rel='shortcut icon' href='/favicon.ico' />

@@ -1,50 +1,36 @@
-import {
-  Box,
-  AppBar,
-  Toolbar,
-  Typography,
-  Slide,
-  useScrollTrigger,
-} from '@mui/material';
-import React from 'react';
+import { AppBar, Container, ButtonBase, Toolbar } from '@mui/material';
+import Image from 'next/image';
+import Link from 'next/link';
 
-function HideOnScroll({ children }) {
-  const trigger = useScrollTrigger({
-    threshold: 0,
-    disableHysteresis: true,
-  });
+export default function Header() {
   return (
-    <Slide appear={false} direction='down' in={!trigger}>
-      {children}
-    </Slide>
+    <header>
+      <AppBar color='transparent' position='sticky'>
+        <Container maxWidth='xl'>
+          <Toolbar disableGutters sx={{ height: 64 }}>
+            <ButtonBase
+              component={Link}
+              href='/'
+              sx={{
+                position: 'relative',
+                display: 'flex',
+                alignItems: 'center',
+                borderRadius: 2,
+                width: 70,
+                height: 56,
+                p: 1,
+              }}
+            >
+              <Image
+                src='/openseattle_logotype_-med.png'
+                alt=''
+                fill
+                style={{ objectFit: 'contain' }}
+              />
+            </ButtonBase>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </header>
   );
 }
-
-export default React.forwardRef(function Header(props, ref) {
-  return (
-    <>
-      <HideOnScroll {...props}>
-        <AppBar position='sticky' color='transparent' elevation={1} ref={ref}>
-          <Toolbar sx={{ justifyContent: 'center' }}>
-            <Box textAlign='center'>
-              <Typography
-                variant='h1'
-                sx={{ fontSize: 48, fontWeight: 500 }}
-                noWrap
-              >
-                Open Seattle
-              </Typography>
-              <Typography
-                variant='h2'
-                sx={{ fontSize: 24, display: { xs: 'none', sm: 'block' } }}
-                noWrap
-              >
-                Technical folks using our powers for good
-              </Typography>
-            </Box>
-          </Toolbar>
-        </AppBar>
-      </HideOnScroll>
-    </>
-  );
-});

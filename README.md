@@ -1,8 +1,12 @@
 # Open Seattle
 
-This repository holds source code for the new [Open Seattle](https://github.com/openseattle) website, built using NextJS.
+This repository holds source code for the [Open Seattle website](https://www.openseattle.org).
 
-We use [MUI](https://mui.com/) as the primary component library.
+## Tools / Services
+
+- [NextJS](https://nextjs.org/) - React-based Web Framework
+- [MUI](https://mui.com/) - UI / Component Library
+- [Sanity](https://www.sanity.io/) - Content Management System / Content API
 
 ## Getting Started
 
