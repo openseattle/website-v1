@@ -19,13 +19,8 @@ export default function Home({ content, footerContent }) {
       <main>
         <Stack>
           {content.map((section, index) => {
-            const imageProps = useNextSanityImage(client, section.image);
             return (
-              <Section
-                section={section}
-                index={index}
-                imageProps={imageProps}
-              />
+              <Section sanityClient={client} section={section} index={index} />
             );
           })}
         </Stack>

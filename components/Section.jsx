@@ -12,7 +12,9 @@ import {
 import ExternalButton from './ExternalButton';
 import Image from 'next/image';
 
-export default function Section({ section, index, imageProps, ...props }) {
+export default function Section({ section, index, sanityClient, ...props }) {
+  const imageProps = useNextSanityImage(sanityClient, section.image);
+
   return (
     <Box
       key={section._key}
@@ -79,6 +81,7 @@ export default function Section({ section, index, imageProps, ...props }) {
               loader={imageProps.loader}
               fill
               style={{ objectFit: 'contain' }}
+              alt=''
             ></Image>
           </Box>
         )}

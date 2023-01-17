@@ -27,8 +27,8 @@ export default function Projects() {
         <Box></Box>
         <Typography variant='h2'>Partner</Typography>
         <Typography gutterBottom>
-          Thank you for your interest in Open Seattle! We'd love to learn more
-          about your needs to determine if we can lend a hand.
+          Thank you for your interest in Open Seattle! We&apos;d love to learn
+          more about your needs to determine if we can lend a hand.
         </Typography>
         <FormContainer
           onSuccess={(data) => console.log(data)}

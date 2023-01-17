@@ -35,6 +35,7 @@ export default function Footer({ content, ...props }) {
         >
           {content.footerLinks.map((link) => (
             <Link
+              key={link.linkText}
               align='center'
               underline='none'
               href={link.url}
