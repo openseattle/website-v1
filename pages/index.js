@@ -20,7 +20,12 @@ export default function Home({ content, footerContent }) {
         <Stack>
           {content.map((section, index) => {
             return (
-              <Section sanityClient={client} section={section} index={index} />
+              <Section
+                key={index}
+                index={index}
+                sanityClient={client}
+                section={section}
+              />
             );
           })}
         </Stack>
