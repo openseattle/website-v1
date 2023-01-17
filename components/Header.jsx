@@ -1,11 +1,4 @@
-import {
-  AppBar,
-  Box,
-  Container,
-  ButtonBase,
-  Toolbar,
-  Typography,
-} from '@mui/material';
+import { AppBar, Container, ButtonBase, Toolbar } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 

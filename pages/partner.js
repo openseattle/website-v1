@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { Container, Box, Stack, Button } from '@mui/material';
+import { Container, Box, Stack, Button, Typography } from '@mui/material';
 import {
   FormContainer,
   TextFieldElement,
@@ -23,15 +23,22 @@ export default function Projects() {
   const { reset } = formContext;
   return (
     <main>
-      <h1>Partner</h1>
-      <Container>
+      <Container maxWidth='xl' sx={{ mt: 8 }}>
+        <Box></Box>
+        <Typography variant='h2'>Partner</Typography>
+        <Typography gutterBottom>
+          Thank you for your interest in Open Seattle! We'd love to learn more
+          about your needs to determine if we can lend a hand.
+        </Typography>
         <FormContainer
           onSuccess={(data) => console.log(data)}
           formContext={formContext}
         >
           <Stack gap={2}>
-            <Box component='fieldset' sx={{ borderRadius: 2 }}>
-              <legend>Contact Details</legend>
+            <Box component='fieldset' sx={{ border: 'none', p: 0, m: 0 }}>
+              <Typography fontSize={20} component='legend' gutterBottom>
+                Contact Details
+              </Typography>
               <Stack gap={2}>
                 <TextFieldElement name='name' label='Name' required />
                 <TextFieldElement name='email' label='Email' required />
@@ -47,20 +54,21 @@ export default function Projects() {
                   helperText='What organization do you represent?'
                   required
                 />
-
-                <RadioButtonGroup
-                  name='organizationType'
-                  label='Organization Type'
-                  options={[
-                    { label: 'Government Agency', id: 'government' },
-                    { label: 'Nonprofit', id: 'nonprofit' },
-                    { label: 'Community Organization', id: 'community' },
-                    { label: 'For-profit Company', id: 'for-profit' },
-                    { label: 'Other', id: 'other' },
-                  ]}
-                  row
-                  required
-                />
+                <Box px={'14px'}>
+                  <RadioButtonGroup
+                    name='organizationType'
+                    label='Organization Type'
+                    options={[
+                      { label: 'Government Agency', id: 'government' },
+                      { label: 'Nonprofit', id: 'nonprofit' },
+                      { label: 'Community Organization', id: 'community' },
+                      { label: 'For-profit Company', id: 'for-profit' },
+                      { label: 'Other', id: 'other' },
+                    ]}
+                    row
+                    required
+                  />
+                </Box>
 
                 <TextFieldElement
                   name='website'
@@ -69,8 +77,10 @@ export default function Projects() {
                 />
               </Stack>
             </Box>
-            <Box component='fieldset' sx={{ borderRadius: 2 }}>
-              <legend>Project</legend>
+            <Box component='fieldset' sx={{ border: 'none', p: 0, m: 0 }}>
+              <Typography fontSize={20} component='legend' gutterBottom>
+                Project
+              </Typography>
               <Stack gap={2}>
                 <TextFieldElement
                   name='projectTitle'
